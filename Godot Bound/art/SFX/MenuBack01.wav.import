@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MenuBack01.wav-23f85e73313b78b33f2cdc9d50baf981.sample"
+
+[deps]
+
+source_file="res://art/SFX/MenuBack01.wav"
+dest_files=[ "res://.import/MenuBack01.wav-23f85e73313b78b33f2cdc9d50baf981.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

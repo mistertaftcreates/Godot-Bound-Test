@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="GenericPlace" type="Node2D"]
+
+[node name="Background" type="TileMap" parent="."]
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Midground" type="TileMap" parent="."]
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Foreground" type="TileMap" parent="."]
+cell_size = Vector2( 16, 16 )
+format = 1

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1BITTopDownMusics - Track 02 (1BIT Dark Cave).wav-d200be47fed7b407aacee54621b852b1.sample"
+
+[deps]
+
+source_file="res://art/MUSIC/1BITTopDownMusics - Track 02 (1BIT Dark Cave).wav"
+dest_files=[ "res://.import/1BITTopDownMusics - Track 02 (1BIT Dark Cave).wav-d200be47fed7b407aacee54621b852b1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
