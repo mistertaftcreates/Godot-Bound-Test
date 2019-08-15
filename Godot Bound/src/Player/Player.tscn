@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://art/SPRITES/HEROS/spritesheets/HEROS8bit_Adventurer Walk R.png" type="Texture" id=7]
 [ext_resource path="res://art/SPRITES/HEROS/spritesheets/HEROS8bit_Adventurer Walk U.png" type="Texture" id=8]
 [ext_resource path="res://src/Player/PlayerUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Player/ContextBubble.gd" type="Script" id=10]
+[ext_resource path="res://src/Player/pixel_style3.png" type="Texture" id=11]
+[ext_resource path="res://src/Dialog Window/DialogWindow.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle down"
@@ -338,7 +341,12 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[node name="Player" instance=ExtResource( 1 )]
+[sub_resource type="CircleShape2D" id=9]
+radius = 3.0
+
+[node name="Player" groups=[
+"Player",
+] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
@@ -361,3 +369,26 @@ zoom = Vector2( 0.8, 0.8 )
 limit_smoothed = true
 
 [node name="PlayerUI" parent="." index="6" instance=ExtResource( 9 )]
+
+[node name="ContextBubble" type="Node2D" parent="." index="7"]
+editor/display_folded = true
+script = ExtResource( 10 )
+
+[node name="BubbleSprite" type="Sprite" parent="ContextBubble" index="0"]
+position = Vector2( 0, -16 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 144, 0, 16, 16 )
+
+[node name="Area2D" type="Area2D" parent="ContextBubble" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContextBubble/Area2D" index="0"]
+position = Vector2( 0, 5 )
+shape = SubResource( 9 )
+
+[node name="DialogWindow" parent="." index="8" instance=ExtResource( 12 )]
+[connection signal="activate_dialog" from="ContextBubble" to="DialogWindow" method="_on_ContextBubble_activate_dialog"]
+[connection signal="set_dialog" from="ContextBubble" to="DialogWindow" method="_on_ContextBubble_set_dialog"]
+[connection signal="area_entered" from="ContextBubble/Area2D" to="ContextBubble" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="ContextBubble/Area2D" to="ContextBubble" method="_on_Area2D_area_exited"]

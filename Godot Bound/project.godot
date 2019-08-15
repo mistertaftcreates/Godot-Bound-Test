@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Godot Bound"
 config/icon="res://icon.png"
 
+[autoload]
+
+new_script="*res://src/Game Stuff/new_script.gd"
+
 [display]
 
 window/size/width=480

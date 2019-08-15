@@ -17,6 +17,12 @@ onready var player_cam:= $Camera2D
 func _ready():
 	change_animation("idle down")
 	set_camera_limits()
+	new_position()
+
+
+func new_position():
+	if new_script.player_pos != Vector2.ZERO:
+		global_position = new_script.player_pos
 
 
 func set_camera_limits():
